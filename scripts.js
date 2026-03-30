@@ -35,6 +35,11 @@ function initGame() {
 */
 function createCard(symbol) {
     // Write your code here
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.dataset.symbol = symbol;
+    card.addEventListener('click', () => flipCard(card));
+    document.getElementById('game-board').appendChild(card);
 }
 
 /*
