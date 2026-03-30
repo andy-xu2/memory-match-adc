@@ -23,10 +23,24 @@ let lockBoard = false;
 */
 function initGame() {
     // Write your code here
+    cards = [];
+    document.getElementById('game-board').innerHTML = '';
+    resetBoard();
 
-    document.getElementById('restart-btn').addEventListener('click', initGame);
+    for (let symbol of symbols) {
+        cards.push(symbol);
+        cards.push(symbol);
+    }
+
+    shuffleArray(cards);
+
+    for (let card of cards) {
+        createCard(card);
+    }
+
 }
 
+document.getElementById('restart-btn').addEventListener('click', initGame);
 /*
     The card will have the css class 'card' and it would be a good idea to somehow save what its symbol is
     within the element itself, since we'll need it for later and there's no easy way to get it from the arrays.
@@ -85,6 +99,9 @@ function checkForMatch() {
 */
 function disableCards() {
     // Write your code here
+    firstCard.classList.add('matched');
+    secondCard.classList.add('matched');
+    resetBoard();
 }
  
 /* ---------------------  Everything under has already been done for you -------------------------- */
