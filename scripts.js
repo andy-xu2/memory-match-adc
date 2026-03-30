@@ -71,6 +71,11 @@ function flipCard(card) {
 */
 function checkForMatch() {
     // Write your code here
+    if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+        disableCards();
+    } else {
+        unflipCards();
+    }
 }
 
 /* 
