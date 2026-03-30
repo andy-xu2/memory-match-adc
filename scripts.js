@@ -54,6 +54,14 @@ function flipCard(card) {
     // If the board is supposed to be locked or you picked the same card you already picked
     if (lockBoard || card === firstCard) return;
     // Write your code here
+    card.classList.add('flipped');
+    card.textContent = card.dataset.symbol;
+    if (!firstCard) {
+        firstCard = card;
+    } else {
+        secondCard = card;
+        checkForMatch();
+    }
 }
 
 /* 
